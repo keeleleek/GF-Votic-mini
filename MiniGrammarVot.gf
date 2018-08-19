@@ -1,4 +1,4 @@
-concrete MiniGrammarEng of MiniGrammar = open MiniResEng, Prelude in {
+concrete MiniGrammarVot of MiniGrammar = open MiniResVot, Prelude in {
 
 
   lincat

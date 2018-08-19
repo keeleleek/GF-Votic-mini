@@ -1,4 +1,4 @@
-concrete MiniLexiconEng of MiniLexicon = MiniGrammarEng ** open MiniResEng in {
+concrete MiniLexiconVot of MiniLexicon = MiniGrammarVot ** open MiniResVot in {
 lin already_Adv = mkAdv "already" ;
 lin animal_N = mkN "animal" ;
 lin apple_N = mkN "apple" ; -- omõn
