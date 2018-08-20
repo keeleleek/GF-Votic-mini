@@ -31,7 +31,7 @@ concrete MiniGrammarVot of MiniGrammar = open MiniResVot, Prelude in {
       } ;
     PredVP np vp = {
       s = \\b =>
-           np.s ! Nom 
+           np.s ! nominative 
 	++ case <b, np.a, vp.verb.isAux> of {
 	    <True, Agr Sg Per1,_> => vp.verb.s ! PresSg1 ;
 	    <True, Agr Sg Per3,_> => vp.verb.s ! VF PresSg3 ;
