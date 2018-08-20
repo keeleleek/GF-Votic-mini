@@ -1,7 +1,7 @@
 resource MiniResVot = open Prelude, MorphoVot in {
 
 param
-  Number = singular | plural ;
+  Number = Sg | Pl ;
   Case = nominative | genitive | partitive | illative | inessive | elative | allative | adessive | ablative | translative | terminative | comitative ;
   Person = Per1 | Per2 | Per3 ;
 
