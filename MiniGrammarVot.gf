@@ -74,10 +74,10 @@ concrete MiniGrammarVot of MiniGrammar = open MiniResVot, Prelude in {
       s = \\_ => cn.s ! Sg ;
       a = Agr Sg Per3
       } ;
-    a_Det = {s = "a" ; n = Sg} ;
+    a_Det = {s = "" ; n = Sg} ;
     aPl_Det = {s = "" ; n = Pl} ;
-    the_Det = {s = "the" ; n = Sg} ;
-    thePl_Det = {s = "the" ; n = Pl} ;
+    the_Det = {s = "tämä" ; n = Sg} ;
+    thePl_Det = {s = "nämäd" ; n = Pl} ;
     UseN n =
       n ;
     AdjCN ap cn = {
