@@ -93,8 +93,8 @@ concrete MiniGrammarVot of MiniGrammar = open MiniResVot, Prelude in {
     PPos  = {s = [] ; b = True} ;
     PNeg  = {s = [] ; b = False} ;
 
-    and_Conj = {s = "and"} ;
-    or_Conj = {s = "or"} ;
+    and_Conj = {s = "i"} ;
+    or_Conj = {s = "vai"} ;
 
     every_Det = {s = "every" ; n = Sg} ;
 
