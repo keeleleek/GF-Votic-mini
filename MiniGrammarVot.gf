@@ -24,7 +24,7 @@ concrete MiniGrammarVot of MiniGrammar = open MiniResVot, Prelude in {
 
   lin
     UttS s = s ;
-    UttNP np = {s = np.s ! Acc} ;
+    UttNP np = {s = np.s ! partitive} ;
 
     UsePresCl pol cl = {
       s = pol.s ++ cl.s ! pol.b
@@ -51,7 +51,7 @@ concrete MiniGrammarVot of MiniGrammar = open MiniResVot, Prelude in {
       } ;
     ComplV2 v2 np = {
       verb = verb2gverb v2 ;
-      compl = v2.c ++ np.s ! Acc
+      compl = v2.c ++ np.s ! partitive
       } ;
     UseAP ap = {
       verb = be_GVerb ;
@@ -86,7 +86,7 @@ concrete MiniGrammarVot of MiniGrammar = open MiniResVot, Prelude in {
 
     PositA a = a ;
 
-    PrepNP prep np = {s = prep.s ++ np.s ! Acc} ;
+    PrepNP prep np = {s = prep.s ++ np.s ! partitive} ;
 
     CoordS conj a b = {s = a.s ++ conj.s ++ b.s} ;
     
