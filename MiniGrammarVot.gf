@@ -103,31 +103,106 @@ concrete MiniGrammarVot of MiniGrammar = open MiniResVot, Prelude in {
     with_Prep = {s = "with"} ;
 
     i_Pron = {
-      s = table {Nom => "I" ; Acc => "me"} ;
+      s = table {
+        nominative => "miä" ;
+        genitive => "minu" ;
+        partitive => "minnua" ;
+        illative => "minnu" | "minusõ" ;
+        inessive => "minuz" ;
+        elative => "minuss" ;
+        allative => "millõ" ;
+        adessive => "mill" ;
+        ablative => "milt" ;
+        translative => "minussi" ;
+        terminative => "minussaa" ;
+        comitative => "minuka"
+      } ;
       a = Agr Sg Per1
       } ;
     youSg_Pron = {
-      s = \\_ => "you" ;
+      s = table {
+        nominative => "siä" ;
+        genitive => "sinu" ;
+        partitive => "sinnua" ;
+        illative => "sinnu" | "sinusõ" ;
+        inessive => "sinuz" ;
+        elative => "sinuss" ;
+        allative => "sillõ" ;
+        adessive => "sill" ;
+        ablative => "silt" ;
+        translative => "sinussi" ;
+        terminative => "sinussaa" ;
+        comitative => "sinuka"
+      } ;
       a = Agr Sg Per2
       } ;
     he_Pron = {
-      s = table {Nom => "he" ; Acc => "him"} ;
+      s = table {
+        nominative => "siä" ;
+        genitive => "sinu" ;
+        partitive => "sinnua" ;
+        illative => "sinnu" | "sinusõ" ;
+        inessive => "sinuz" ;
+        elative => "sinuss" ;
+        allative => "sillõ" ;
+        adessive => "sill" ;
+        ablative => "silt" ;
+        translative => "sinussi" ;
+        terminative => "sinussaa" ;
+        comitative => "sinuka"
+      } ;
       a = Agr Sg Per3
       } ;
-    she_Pron = {
-      s = table {Nom => "she" ; Acc => "her"} ;
-      a = Agr Sg Per3
-      } ;
+    she_Pron = he_Pron ;
     we_Pron = {
-      s = table {Nom => "we" ; Acc => "us"} ;
+      s = table {
+        nominative => "müü" ;
+        genitive => "mejje" ;
+        partitive => "meit" | "meite" ;
+        illative => "meise" ;
+        inessive => "meiz" ;
+        elative => "meiss" ;
+        allative => "meille" ;
+        adessive => "meill" ;
+        ablative => "meilt" ;
+        translative => "meissi" ;
+        terminative => "mejjessaa" ;
+        comitative => "mejjeka"
+      } ;
       a = Agr Pl Per1
       } ;
     youPl_Pron = {
-      s = \\_ => "you" ;
+      s = table {
+        nominative => "tüü" ;
+        genitive => "tejje" ;
+        partitive => "teit" | "teite" ;
+        illative => "teise" ;
+        inessive => "teiz" ;
+        elative => "teiss" ;
+        allative => "teille" ;
+        adessive => "teill" ;
+        ablative => "teilt" ;
+        translative => "teissi" ;
+        terminative => "tejjessaa" ;
+        comitative => "tejjeka"
+      } ;
       a = Agr Pl Per2
       } ;
     they_Pron = {
-      s = table {Nom => "they" ; Acc => "them"} ;
+      s = table {
+        nominative => "nämä" | "nämäd" ;
+        genitive => "näjje" ;
+        partitive => "näit" | "näite" ;
+        illative => "näise" ;
+        inessive => "näiz" ;
+        elative => "näiss" ;
+        allative => "näille" ;
+        adessive => "näill" ;
+        ablative => "näilt" ;
+        translative => "näissi" ;
+        terminative => "näjjessaa" ;
+        comitative => "näjjeka"
+      } ;
       a = Agr Pl Per2
       } ;
 
