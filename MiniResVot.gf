@@ -7,72 +7,7 @@ param
 
   VForm = Inf | PresSg3 ;
 
---  NForm = NF Number Case ; -- @TODO remove this later
-  
 oper
-  --  Noun : Type = {s : Number => Case => Str} ;
---  Noun : Type = {s : NForm => Str} ;
-
---   mkNoun : Str -> Str -> Noun = \sg,pl -> {
---     s = table {Sg => sg ; Pl => pl}
---     } ;
--- 
---   regNoun : Str -> Noun = \sg -> mkNoun sg (sg + "s") ;
--- 
---   -- smart paradigm
---   smartNoun : Str -> Noun = \sg -> case sg of {
---     _ + ("ay"|"ey"|"oy"|"uy") => regNoun sg ;
---     x + "y" => mkNoun sg (x + "ies") ;
---     _ + ("ch"|"sh"|"s"|"o") => mkNoun sg (sg + "es") ;
---     _       => regNoun sg
---     } ;
--- 
---   mkN = overload {
---    mkN : Str -> Noun = smartNoun ;
---    mkN : Str -> Str -> Noun = mkNoun ;
---    } ;
-
---   mkOmõn : Str -> Noun = \omõn -> 
---     case omõn of {
---       omõn => mkOmõnConcrete omõn ;
---       _ => Predef.error "Unsuitable lemma for mkOmõn"
---     } ;
--- 
---   mkOmõnConcrete : Str -> Noun = \omõn -> 
---     { s = 
---       table {
---         NCase Sg nominative => omõn ;
---         NCase Pl nominative => omõn + "ad" ;
---         NCase Sg genitive => omõn + "a" ;
---         NCase Pl genitive => omõn + "oi" ;
---         NCase Pl genitive => omõn + "ojõ" ;
---         NCase Sg partitive => omõn + "a" ;
---         NCase Sg partitive => omõn + "aa" ;
---         NCase Pl partitive => omõn + "oi" ;
---         NCase Pl partitive => omõn + "oitõ" ;
---         NCase Sg illative => omõn + "aa" ;
---         NCase Sg illative => omõn + "asõ" ;
---         NCase Pl illative => omõn + "oisõ" ;
---         NCase Sg inessive => omõn + "õz" ;
---         NCase Pl inessive => omõn + "oiz" ;
---         NCase Sg elative => omõn + "õssõ" ;
---         NCase Pl elative => omõn + "oissõ" ;
---         NCase Sg allative => omõn + "õllõ" ;
---         NCase Pl allative => omõn + "oillõ" ;
---         NCase Sg adessive => omõn + "õl" ;
---         NCase Pl adessive => omõn + "oil" ;
---         NCase Sg ablative => omõn + "õltõ" ;
---         NCase Pl ablative => omõn + "oiltõ" ;
---         NCase Sg translative => omõn + "õssi" ;
---         NCase Pl translative => omõn + "oissi" ;
---         NCase Sg terminative => omõn + "assaa" ;
---         NCase Pl terminative => omõn + "oissaa" ;
---         NCase Sg comitative => omõn + "aka" ;
---         NCase Pl comitative => omõn + "oika"
---       }
---     } ;
-
-  
   ProperName : Type = {s : Str} ;
 
   mkPN : Str -> ProperName = \s -> {s = s} ;
