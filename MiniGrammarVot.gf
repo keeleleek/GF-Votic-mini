@@ -12,7 +12,7 @@ concrete MiniGrammarVot of MiniGrammar = open MiniResVot, Prelude in {
     CN = Noun ;
     NP = {s : Case => Str ; a : Agreement} ;
     Pron = {s : Case => Str ; a : Agreement} ;
-    Det = {s : Str ; n : Number} ;
+    Det = {s : Case => Str ; n : Number} ;
     Conj = {s : Str} ;
     Prep = {s : Str} ;
     V = Verb ;
@@ -60,7 +60,7 @@ concrete MiniGrammarVot of MiniGrammar = open MiniResVot, Prelude in {
       vp ** {compl = vp.compl ++ adv.s} ;
       
     DetCN det cn = {
-      s = table {c => det.s ++ cn.s ! NF det.n c} ;
+      s = table {c => det.s ! c ++ cn.s ! NF det.n c} ;
       a = Agr det.n Per3
       } ;
     UsePN pn = {
@@ -73,16 +73,59 @@ concrete MiniGrammarVot of MiniGrammar = open MiniResVot, Prelude in {
       s = \\c => cn.s ! NF Sg c ;
       a = Agr Sg Per3
       } ;
-    a_Det = {s = "" ; n = Sg} ;
-    aPl_Det = {s = "" ; n = Pl} ;
-    the_Det = {s = "tämä" ; n = Sg} ;
-    thePl_Det = {s = "nämäd" ; n = Pl} ;
-    UseN n =
-      n ;
+
+    a_Det = {s = table { _ => "" } ;
+	     n = Sg} ;
+
+    aPl_Det = {s = table {
+		 nominative => "" ;
+		 genitive => "" ;
+		 partitive => "" ;
+		 illative => "" ;
+		 inessive => "" ;
+		 elative => "" ;
+		 allative => "" ;
+		 adessive => "" ;
+		 ablative => "" ;
+		 terminative => "" ;
+		 translative => "" ;
+		 comitative => ""
+		 } ; n = Pl} ;
+
+    the_Det = {s = table {
+		 nominative => "see" ;
+		 genitive => "sene" ;
+		 partitive => "sitä" ;
+		 illative => "sihe" ;
+		 inessive => "senez" ;
+		 elative => "seness" ;
+		 allative => "selle" ;
+		 adessive => "sell" ;
+		 ablative => "selt" ;
+		 terminative => "senessaa" ;
+		 translative => "senessi" ;
+		 comitative => "seneka"
+		 } ; n = Sg} ;
+
+    thePl_Det = {s = table {
+		 nominative => "nee" | "need" ;
+		 genitive => "nejje" ;
+		 partitive => "neit" ;
+		 illative => "neise" ;
+		 inessive => "neiz" ;
+		 elative => "neiss" ;
+		 allative => "neille" ;
+		 adessive => "neill" ;
+		 ablative => "neilt" ;
+		 terminative => "nejjessaa" ;
+		 translative => "neissi" ;
+		 comitative => "nejjeka"
+		 } ; n = Pl} ;
+    UseN n = n ;
     AdjCN ap cn = {
       s = table {n => ap.s ++ cn.s ! n}
       } ;
-
+    
     PositA a = a ;
 
     PrepNP prep np = {s = prep.s ++ np.s ! partitive} ;
@@ -95,7 +138,7 @@ concrete MiniGrammarVot of MiniGrammar = open MiniResVot, Prelude in {
     and_Conj = {s = "i"} ;
     or_Conj = {s = "vai"} ;
 
-    every_Det = {s = "every" ; n = Sg} ;
+    every_Det = {s = \\c => (mkKõikk "kõikk").s ! NF Sg c ; n = Pl} ;
 
     in_Prep = {s = "in"} ;
     on_Prep = {s = "on"} ;
