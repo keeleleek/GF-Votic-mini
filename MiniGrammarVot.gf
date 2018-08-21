@@ -1,6 +1,5 @@
 concrete MiniGrammarVot of MiniGrammar = open MiniResVot, Prelude in {
 
-
   lincat
     Utt = {s : Str} ;
     Adv = Adverb ;
@@ -61,7 +60,7 @@ concrete MiniGrammarVot of MiniGrammar = open MiniResVot, Prelude in {
       vp ** {compl = vp.compl ++ adv.s} ;
       
     DetCN det cn = {
-      s = table {c => det.s ++ cn.s ! det.n} ;
+      s = table {c => det.s ++ cn.s ! NF det.n c} ;
       a = Agr det.n Per3
       } ;
     UsePN pn = {
@@ -71,7 +70,7 @@ concrete MiniGrammarVot of MiniGrammar = open MiniResVot, Prelude in {
     UsePron p =
       p ;
     MassNP cn = {
-      s = \\_ => cn.s ! Sg ;
+      s = \\c => cn.s ! NF Sg c ;
       a = Agr Sg Per3
       } ;
     a_Det = {s = "" ; n = Sg} ;
