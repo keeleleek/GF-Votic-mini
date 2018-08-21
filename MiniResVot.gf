@@ -1,8 +1,6 @@
-resource MiniResVot = open Prelude, MorphoVot in {
+resource MiniResVot = MorphoVot ** open Prelude in {
 
 param
-  Number = Sg | Pl ;
-  Case = nominative | genitive | partitive | illative | inessive | elative | allative | adessive | ablative | translative | terminative | comitative ;
   Person = Per1 | Per2 | Per3 ;
 
   Agreement = Agr Number Person ;
