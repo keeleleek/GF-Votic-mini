@@ -175,39 +175,41 @@ oper
     } ;
 
 
-  mkAmmõz : Str -> Noun = \ammõz -> 
-    case ammõz of {
-      am + "mõz" => mkAmmõzConcrete am ;
-      _ => Predef.error "Unsuitable lemma for mkAmmõz"
+  mkTüttö : Str -> Noun = \tüttö -> 
+    case tüttö of {
+      tüt + "t" + ö => mkTüttöConcrete tüt ö ;
+      _ => Predef.error "Unsuitable lemma for mkTüttö"
     } ;
 
-  mkAmmõzConcrete : Str -> Noun = \am -> 
+  mkTüttöConcrete : Str -> Str -> Noun = \tüt,ö -> 
     { s =
       table {
-        NF Sg nominative => am + "mõz" ;
-        NF Pl nominative => am + "pad" ;
-        NF Sg genitive => am + "pa" ;
-        NF Pl genitive => am + "paijõ" ;
-        NF Sg partitive => am + "massõ" ;
-        NF Pl partitive => am + "paitõ" ;
-        NF Sg illative => am + "pasõ" ;
-        NF Pl illative => am + "paisõ" ;
-        NF Sg inessive => am + "paz" ;
-        NF Pl inessive => am + "paiz" ;
-        NF Sg elative => am + "passõ" ;
-        NF Pl elative => am + "paissõ" ;
-        NF Sg allative => am + "pallõ" ;
-        NF Pl allative => am + "paillõ" ;
-        NF Sg adessive => am + "pal" ;
-        NF Pl adessive => am + "pail" ;
-        NF Sg ablative => am + "paltõ" ;
-        NF Pl ablative => am + "pailtõ" ;
-        NF Sg translative => am + "passi" ;
-        NF Pl translative => am + "paissi" ;
-        NF Sg terminative => am + "passaa" ;
-        NF Pl terminative => am + "paissaa" ;
-        NF Sg comitative => am + "paka" ;
-        NF Pl comitative => am + "paika"
+        NF Sg nominative => tüt + "t" + ö ;
+        NF Pl nominative => tüt + ö + "d" ;
+        NF Sg genitive => tüt + ö ;
+        NF Pl genitive => tüt + "t" + ö + "i" ;
+        NF Pl genitive => tüt + "t" + ö + "je" ;
+        NF Sg partitive => tüt + "t" + ö + "ä" ;
+        NF Pl partitive => tüt + "t" + ö + "i" ;
+        NF Pl partitive => tüt + "t" + ö + "ite" ;
+        NF Sg illative => tüt + "t" + ö + "se" ;
+        NF Pl illative => tüt + "t" + ö + "ise" ;
+        NF Sg inessive => tüt + "t" + ö + "z" ;
+        NF Pl inessive => tüt + "t" + ö + "iz" ;
+        NF Sg elative => tüt + ö + "sse" ;
+        NF Pl elative => tüt + "t" + ö + "isse" ;
+        NF Sg allative => tüt + ö + "lle" ;
+        NF Pl allative => tüt + "t" + ö + "ille" ;
+        NF Sg adessive => tüt + ö + "l" ;
+        NF Pl adessive => tüt + "t" + ö + "il" ;
+        NF Sg ablative => tüt + ö + "lte" ;
+        NF Pl ablative => tüt + "t" + ö + "ilte" ;
+        NF Sg translative => tüt + ö + "ssi" ;
+        NF Pl translative => tüt + "t" + ö + "issi" ;
+        NF Sg terminative => tüt + "t" + ö + "ssaa" ;
+        NF Pl terminative => tüt + "t" + ö + "issaa" ;
+        NF Sg comitative => tüt + ö + "ka" ;
+        NF Pl comitative => tüt + "t" + ö + "ika"
       }
     } ;
 
@@ -609,41 +611,40 @@ oper
     } ;
 
 
-  mkTüttö : Str -> Noun = \tüttö -> 
-    case tüttö of {
-      tüt + "t" + ö => mkTüttöConcrete tüt ö ;
-      _ => Predef.error "Unsuitable lemma for mkTüttö"
+  mkKatti : Str -> Noun = \katti -> 
+    case katti of {
+      kat + "t" + i => mkKattiConcrete kat i ;
+      _ => Predef.error "Unsuitable lemma for mkKatti"
     } ;
 
-  mkTüttöConcrete : Str -> Str -> Noun = \tüt,ö -> 
+  mkKattiConcrete : Str -> Str -> Noun = \kat,i -> 
     { s =
       table {
-        NF Sg nominative => tüt + "t" + ö ;
-        NF Pl nominative => tüt + ö + "d" ;
-        NF Sg genitive => tüt + ö ;
-        NF Pl genitive => tüt + "t" + ö + "i" ;
-        NF Pl genitive => tüt + "t" + ö + "je" ;
-        NF Sg partitive => tüt + "t" + ö + "ä" ;
-        NF Pl partitive => tüt + "t" + ö + "i" ;
-        NF Pl partitive => tüt + "t" + ö + "ite" ;
-        NF Sg illative => tüt + "t" + ö + "se" ;
-        NF Pl illative => tüt + "t" + ö + "ise" ;
-        NF Sg inessive => tüt + "t" + ö + "z" ;
-        NF Pl inessive => tüt + "t" + ö + "iz" ;
-        NF Sg elative => tüt + ö + "sse" ;
-        NF Pl elative => tüt + "t" + ö + "isse" ;
-        NF Sg allative => tüt + ö + "lle" ;
-        NF Pl allative => tüt + "t" + ö + "ille" ;
-        NF Sg adessive => tüt + ö + "l" ;
-        NF Pl adessive => tüt + "t" + ö + "il" ;
-        NF Sg ablative => tüt + ö + "lte" ;
-        NF Pl ablative => tüt + "t" + ö + "ilte" ;
-        NF Sg translative => tüt + ö + "ssi" ;
-        NF Pl translative => tüt + "t" + ö + "issi" ;
-        NF Sg terminative => tüt + "t" + ö + "ssaa" ;
-        NF Pl terminative => tüt + "t" + ö + "issaa" ;
-        NF Sg comitative => tüt + ö + "ka" ;
-        NF Pl comitative => tüt + "t" + ö + "ika"
+        NF Sg nominative => kat + "t" + i ;
+        NF Pl nominative => kat + i + "d" ;
+        NF Sg genitive => kat + i ;
+        NF Pl genitive => kat + "t" + i + "jõ" ;
+        NF Sg partitive => kat + "t" + i + "a" ;
+        NF Pl partitive => kat + "t" + i + "i" ;
+        NF Pl partitive => kat + "t" + i + "itõ" ;
+        NF Sg illative => kat + "t" + i + "se" ;
+        NF Pl illative => kat + "t" + i + "ise" ;
+        NF Sg inessive => kat + "t" + i + "z" ;
+        NF Pl inessive => kat + "t" + i + "iz" ;
+        NF Sg elative => kat + i + "sse" ;
+        NF Pl elative => kat + "t" + i + "isse" ;
+        NF Sg allative => kat + i + "lle" ;
+        NF Pl allative => kat + "t" + i + "ille" ;
+        NF Sg adessive => kat + i + "l" ;
+        NF Pl adessive => kat + "t" + i + "il" ;
+        NF Sg ablative => kat + i + "lte" ;
+        NF Pl ablative => kat + "t" + i + "ilte" ;
+        NF Sg translative => kat + i + "ssi" ;
+        NF Pl translative => kat + "t" + i + "issi" ;
+        NF Sg terminative => kat + "t" + i + "ssaa" ;
+        NF Pl terminative => kat + "t" + i + "issaa" ;
+        NF Sg comitative => kat + i + "ka" ;
+        NF Pl comitative => kat + "t" + i + "ika"
       }
     } ;
 
@@ -767,6 +768,45 @@ oper
         NF Pl terminative => päiv + "issaa" ;
         NF Sg comitative => päiv + "äka" ;
         NF Pl comitative => päiv + "ika"
+      }
+    } ;
+
+
+  mkAhkõrõ : Str -> Noun = \ahkõrõ -> 
+    case ahkõrõ of {
+      ahkõr + "õ" => mkAhkõrõConcrete ahkõr ;
+      _ => Predef.error "Unsuitable lemma for mkAhkõrõ"
+    } ;
+
+  mkAhkõrõConcrete : Str -> Noun = \ahkõr -> 
+    { s =
+      table {
+        NF Sg nominative => ahkõr + "õ" ;
+        NF Pl nominative => ahkõr + "õd" ;
+        NF Sg genitive => ahkõr + "a" ;
+        NF Pl genitive => ahkõr + "oi" ;
+        NF Sg partitive => ahkõr + "a" ;
+        NF Pl partitive => ahkõr + "oi" ;
+        NF Pl partitive => ahkõr + "oitõ" ;
+        NF Sg illative => ahkõr + "aa" ;
+        NF Sg illative => ahkõr + "asõ" ;
+        NF Pl illative => ahkõr + "oisõ" ;
+        NF Sg inessive => ahkõr + "az" ;
+        NF Pl inessive => ahkõr + "oiz" ;
+        NF Sg elative => ahkõr + "õssõ" ;
+        NF Pl elative => ahkõr + "oissõ" ;
+        NF Sg allative => ahkõr + "õllõ" ;
+        NF Pl allative => ahkõr + "oillõ" ;
+        NF Sg adessive => ahkõr + "õl" ;
+        NF Pl adessive => ahkõr + "oil" ;
+        NF Sg ablative => ahkõr + "õssi" ;
+        NF Pl ablative => ahkõr + "oissi" ;
+        NF Sg translative => ahkõr + "assi" ;
+        NF Pl translative => ahkõr + "oissi" ;
+        NF Sg terminative => ahkõr + "assaa" ;
+        NF Pl terminative => ahkõr + "oissaa" ;
+        NF Sg comitative => ahkõr + "aka" ;
+        NF Pl comitative => ahkõr + "oika"
       }
     } ;
 
