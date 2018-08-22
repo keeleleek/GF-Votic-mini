@@ -261,7 +261,7 @@ concrete MiniGrammarVot of MiniGrammar = open MiniResVot, Prelude in {
         terminative => "näjjessaa" ;
         comitative => "näjjeka"
       } ;
-      a = Agr Pl Per2
+      a = Agr Pl Per3
       } ;
 
 }
