@@ -59,21 +59,32 @@ lin milk_N = mkPäive "piime" ;
 -- lin now_Adv = mkAdv "now" ;
 -- lin old_A = mkA "old" ;
 -- lin paris_PN = mkPN "Paris" ;
-    -- lin play_V = mkV "play" ;
   lin play_V = {
 	s = table {
-	  Presn Sg Per1 => "lugõn" ;
-	  Presn Sg Per2 => "lugõd" ;
-	  Presn Sg Per3 => "lugõb" ;
-	  Presn Pl Per1 => "lugõmmõ" ;
-	  Presn Pl Per2 => "lugõttõ" ;
-	  Presn Pl Per3 => "lugõta" ;
-	  Imp => "lugõ"
+	  Presn Sg Per1 => "pelan" ;
+	  Presn Sg Per2 => "pelad" ;
+	  Presn Sg Per3 => "pelab" ;
+	  Presn Pl Per1 => "pelammõ" ;
+	  Presn Pl Per2 => "pelattõ" ;
+	  Presn Pl Per3 => "pelata" ;
+	  Imp => "pela"
 	  } ;
 	isAux = False ;
 	} ;
       
 -- lin read_V2 = mkV2 "read" ;
+--      {
+--	s = table {
+--	  Presn Sg Per1 => "lugõn" ;
+--	  Presn Sg Per2 => "lugõd" ;
+--	  Presn Sg Per3 => "lugõb" ;
+--	  Presn Pl Per1 => "lugõmmõ" ;
+--	  Presn Pl Per2 => "lugõttõ" ;
+--	  Presn Pl Per3 => "lugõta" ;
+--	  Imp => "lugõ"
+--	  } ;
+--	isAux = False ;
+--	} ;
 -- lin ready_A = mkA "ready" ;
 -- lin red_A = mkA "red" ;
 -- lin river_N = mkN "river" ;
