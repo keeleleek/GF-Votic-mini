@@ -5,72 +5,73 @@ param
 
   Agreement = Agr Number Person ;
 
-  VForm = Inf | PresSg3 ;
+  VForm = Presn Number Person | Imp ;
 
 oper
   ProperName : Type = {s : Str} ;
 
   mkPN : Str -> ProperName = \s -> {s = s} ;
 
-  Adjective : Type = {s : Str} ;
+  Adjective : Type = {s : NForm => Str};
 
-  mkA : Str -> Adjective = \s -> {s = s} ;
+  -- mkA : Str -> Adjective = \s -> {s = s} ;
 
-  Verb : Type = {s : VForm => Str} ;
+  Verb : Type = {s : VForm => Str ; isAux : Bool} ;
 
-  mkVerb : (inf,pres : Str) -> Verb = \inf,pres -> {
-    s = table {
-      Inf => inf ;
-      PresSg3 => pres
-      }
-    } ;
-
-  smartVerb : Str -> Verb = \inf ->
-     mkVerb inf inf ;
- 
-  mkV = overload {
-    mkV : Str -> Verb = smartVerb ;
-    mkV : (inf,pres : Str) -> Verb = mkVerb ;
-    } ;
-
+  -- mkVerb : (inf,pres : Str) -> Verb = \inf,pres -> {
+  --   s = table {
+  --     Inf => inf ;
+  --     PresSg3 => pres
+  --     }
+  --   } ;
+  -- 
+  -- smartVerb : Str -> Verb = \inf ->
+  --    mkVerb inf inf ;
+  -- 
+  -- mkV = overload {
+  --   mkV : Str -> Verb = smartVerb ;
+  --   mkV : (inf,pres : Str) -> Verb = mkVerb ;
+  --   } ;
+  --
+  --mkV : { s = VForm => Str } -> Verb = \v -> {s = v.s ; isAux = False } ;
+  
   Verb2 : Type = Verb ** {c : Str} ;
-
-  mkV2 = overload {
-    mkV2 : Str         -> Verb2 = \s   -> mkV s ** {c = []} ;
-    mkV2 : Str  -> Str -> Verb2 = \s,p -> mkV s ** {c = p} ;
-    mkV2 : Verb        -> Verb2 = \v   -> v ** {c = []} ;
-    mkV2 : Verb -> Str -> Verb2 = \v,p -> v ** {c = p} ;
-    } ;
+  -- 
+  -- mkV2 = overload {
+  --   mkV2 : Str         -> Verb2 = \s   -> mkV s ** {c = []} ;
+  --   mkV2 : Str  -> Str -> Verb2 = \s,p -> mkV s ** {c = p} ;
+  --   mkV2 : Verb        -> Verb2 = \v   -> v ** {c = []} ;
+  --   mkV2 : Verb -> Str -> Verb2 = \v,p -> v ** {c = p} ;
+  --   } ;
 
   Adverb : Type = {s : Str} ;
 
   mkAdv : Str -> Adverb = \s -> {s = s} ;
 
-  be_GVerb : GVerb = {
-     s = table {
-       PresSg1 => "am" ;
-       PresPl  => "are" ;
-       VF vf   => (mkVerb "be" "is").s ! vf
-       } ;
-     isAux = True
-     } ;
+  be_Verb : Verb = {
+    s = table {
+      Presn Sg Per1 => "õõn" ;
+      Presn Sg Per2 => "õõd" ;
+      Presn Sg Per3 => "on" ;
+      Presn Pl Per1 => "õõmme" ;
+      Presn Pl Per2 => "õõttõ" ;
+      Presn Pl Per3 => "õlla" ;
+      Imp => "õõ" 
+      } ;
+    isAux = True ;
+    } ;
 
-  GVerb : Type = {
-     s : GVForm => Str ;
-     isAux : Bool
-     } ;
-
- param
-   GVForm = VF VForm | PresSg1 | PresPl ;
-
- oper
-   verb2gverb : Verb -> GVerb = \v -> {s =
-     table {
-       PresSg1 => v.s ! Inf ;
-       PresPl  => v.s ! Inf ;
-       VF vf   => v.s ! vf
-       } ;
-     isAux = False
-     } ;
-
+    neg_Verb : Verb = {
+    s = table {
+      Presn Sg Per1 => "en" ;
+      Presn Sg Per2 => "ed" ;
+      Presn Sg Per3 => "eb" ;
+      Presn Pl Per1 => "emme" ;
+      Presn Pl Per2 => "ette" ;
+      Presn Pl Per3 => "eväd" ;
+      Imp => []
+      } ;
+    isAux = False ;
+    } ;
+  
 }

@@ -1,4 +1,4 @@
-concrete MiniLexiconVot of MiniLexicon = MiniGrammarVot ** open MiniResVot in {
+concrete MiniLexiconVot of MiniLexicon = MiniGrammarVot ** open MiniResVot,Prelude in {
 -- lin already_Adv = mkAdv "already" ;
 -- lin animal_N = mkN "animal" ;
 lin apple_N = mkOmõn "omõn" ;
@@ -10,7 +10,7 @@ lin apple_N = mkOmõn "omõn" ;
 -- lin bird_N = mkN "bird" ; -- lintu
 -- lin black_A = mkA "black" ; -- mussa
 -- lin blood_N = mkN "blood" ; -- veri
--- lin blue_A = mkA "blue" ; -- sinin
+lin blue_A = mkSinin "sinin" ; -- TODO this is not an adjective
 -- lin boat_N = mkN "boat" ; -- vene
 -- lin book_N = mkN "book" ; -- čirja
 lin boy_N = mkPoikõ "poikõ" ;
@@ -59,7 +59,20 @@ lin milk_N = mkPäive "piime" ;
 -- lin now_Adv = mkAdv "now" ;
 -- lin old_A = mkA "old" ;
 -- lin paris_PN = mkPN "Paris" ;
--- lin play_V = mkV "play" ;
+    -- lin play_V = mkV "play" ;
+  lin play_V = {
+	s = table {
+	  Presn Sg Per1 => "lugõn" ;
+	  Presn Sg Per2 => "lugõd" ;
+	  Presn Sg Per3 => "lugõb" ;
+	  Presn Pl Per1 => "lugõmmõ" ;
+	  Presn Pl Per2 => "lugõttõ" ;
+	  Presn Pl Per3 => "lugõta" ;
+	  Imp => "lugõ"
+	  } ;
+	isAux = False ;
+	} ;
+      
 -- lin read_V2 = mkV2 "read" ;
 -- lin ready_A = mkA "ready" ;
 -- lin red_A = mkA "red" ;

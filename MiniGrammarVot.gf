@@ -7,7 +7,7 @@ concrete MiniGrammarVot of MiniGrammar = open MiniResVot, Prelude in {
     
     S  = {s : Str} ;
     Cl = {s : Bool => Str} ;
-    VP = {verb : GVerb ; compl : Str} ;
+    VP = {verb : Verb ; compl : Number => Str} ;
     AP = Adjective ;
     CN = Noun ;
     NP = {s : Case => Str ; a : Agreement} ;
@@ -28,36 +28,49 @@ concrete MiniGrammarVot of MiniGrammar = open MiniResVot, Prelude in {
     UsePresCl pol cl = {
       s = pol.s ++ cl.s ! pol.b
       } ;
+--    PredVP np vp = {
+--      s = \\b =>
+--           np.s ! nominative 
+--	++ case <b, np.a, vp.verb.isAux> of {
+--	    <True, Agr Sg Per1,_> => vp.verb.s ! PresSg1 ;
+--	    <True, Agr Sg Per3,_> => vp.verb.s ! VF PresSg3 ;
+--	    <True, _          ,_> => vp.verb.s ! PresPl ;
+--	    <False, Agr Sg Per1,True>  => vp.verb.s ! PresSg1 ++ "not" ;
+--	    <False, Agr Sg Per3,True>  => vp.verb.s ! VF PresSg3 ++ "not" ;
+--	    <False, _          ,True>  => vp.verb.s ! PresPl ++ "not" ;
+--	    <False, Agr Sg Per3,False> => "does not" ++ vp.verb.s ! VF Inf ;
+--	    <False, _          ,False> => "do not" ++ vp.verb.s ! VF Inf
+--	    }
+--        ++ vp.compl ;
+--      } ;
     PredVP np vp = {
-      s = \\b =>
+      s = \\pol =>
            np.s ! nominative 
-	++ case <b, np.a, vp.verb.isAux> of {
-	    <True, Agr Sg Per1,_> => vp.verb.s ! PresSg1 ;
-	    <True, Agr Sg Per3,_> => vp.verb.s ! VF PresSg3 ;
-	    <True, _          ,_> => vp.verb.s ! PresPl ;
-	    <False, Agr Sg Per1,True>  => vp.verb.s ! PresSg1 ++ "not" ;
-	    <False, Agr Sg Per3,True>  => vp.verb.s ! VF PresSg3 ++ "not" ;
-	    <False, _          ,True>  => vp.verb.s ! PresPl ++ "not" ;
-	    <False, Agr Sg Per3,False> => "does not" ++ vp.verb.s ! VF Inf ;
-	    <False, _          ,False> => "do not" ++ vp.verb.s ! VF Inf
+	++ case <pol, np.a, vp.verb.isAux> of {
+	    <True, Agr num per,_> => vp.verb.s ! Presn num per ;
+	    <False, Agr num per,_>  => neg_Verb.s ! Presn num per ++ vp.verb.s ! Imp
 	    }
-        ++ vp.compl ;
       } ;
-      
+
+    
     UseV v = {
-      verb = verb2gverb v ;
-      compl = []
+      verb = v ;
+      compl = table {Sg => "misasja" ; Pl => "misasjad"} -- TODO is compl needed?
       } ;
-    ComplV2 v2 np = {
-      verb = verb2gverb v2 ;
-      compl = v2.c ++ np.s ! partitive
-      } ;
+--    ComplV2 v2 np = {
+--      verb = v2 ;
+--      compl = v2.c ++ np.s ! partitive
+--      } ;
     UseAP ap = {
-      verb = be_GVerb ;
-      compl = ap.s
+      verb = be_Verb ;
+      compl = 
+	table {
+	  Sg => ap.s ! NF Sg nominative ;
+	  Pl => ap.s ! NF Pl nominative
+	} 
       } ;
-    AdvVP vp adv =
-      vp ** {compl = vp.compl ++ adv.s} ;
+--    AdvVP vp adv =
+--      vp ** {compl = vp.compl ++ adv.s} ;
       
     DetCN det cn = {
       s = table {c => det.s ! c ++ cn.s ! NF det.n c} ;
@@ -123,7 +136,10 @@ concrete MiniGrammarVot of MiniGrammar = open MiniResVot, Prelude in {
 		 } ; n = Pl} ;
     UseN n = n ;
     AdjCN ap cn = {
-      s = table {n => ap.s ++ cn.s ! n}
+      s = table {n => ap.s ! n ++ cn.s ! n}
+--      s = table {
+--	NF num cas => 
+--	}
       } ;
     
     PositA a = a ;
