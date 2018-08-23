@@ -42,7 +42,7 @@ concrete MiniGrammarVot of MiniGrammar = open MiniResVot, Prelude in {
     
     UseV v = {
       verb = v ;
-      compl = table {Sg => [] ; Pl => []} -- TODO is compl needed?
+      compl = table {Sg => [] ; Pl => []}
       } ;
     ComplV2 v2 np = {
       verb = v2 ;
@@ -121,7 +121,9 @@ concrete MiniGrammarVot of MiniGrammar = open MiniResVot, Prelude in {
 		 translative => "neissi" ;
 		 comitative => "nejjeka"
 		 } ; n = Pl} ;
+
     UseN n = n ;
+
     AdjCN ap cn = {
       s = table {n => ap.s ! n ++ cn.s ! n}
       } ;
@@ -158,9 +160,10 @@ concrete MiniGrammarVot of MiniGrammar = open MiniResVot, Prelude in {
         translative => "minussi" ;
         terminative => "minussaa" ;
         comitative => "minuka"
-      } ;
+	} ;
       a = Agr Sg Per1
       } ;
+
     youSg_Pron = {
       s = table {
         nominative => "siä" ;
@@ -175,9 +178,10 @@ concrete MiniGrammarVot of MiniGrammar = open MiniResVot, Prelude in {
         translative => "sinussi" ;
         terminative => "sinussaa" ;
         comitative => "sinuka"
-      } ;
+	} ;
       a = Agr Sg Per2
       } ;
+    
     he_Pron = {
       s = table {
         nominative => "tämä" ;
@@ -192,10 +196,12 @@ concrete MiniGrammarVot of MiniGrammar = open MiniResVot, Prelude in {
         translative => "tämässi" ;
         terminative => "tämässaa" ;
         comitative => "tämäka"
-      } ;
+	} ;
       a = Agr Sg Per3
       } ;
+    
     she_Pron = he_Pron ;
+    
     we_Pron = {
       s = table {
         nominative => "müü" ;
@@ -210,9 +216,10 @@ concrete MiniGrammarVot of MiniGrammar = open MiniResVot, Prelude in {
         translative => "meissi" ;
         terminative => "mejjessaa" ;
         comitative => "mejjeka"
-      } ;
+	} ;
       a = Agr Pl Per1
       } ;
+    
     youPl_Pron = {
       s = table {
         nominative => "tüü" ;
@@ -227,9 +234,10 @@ concrete MiniGrammarVot of MiniGrammar = open MiniResVot, Prelude in {
         translative => "teissi" ;
         terminative => "tejjessaa" ;
         comitative => "tejjeka"
-      } ;
+	} ;
       a = Agr Pl Per2
       } ;
+    
     they_Pron = {
       s = table {
         nominative => "nämä" | "nämäd" ;
@@ -244,7 +252,7 @@ concrete MiniGrammarVot of MiniGrammar = open MiniResVot, Prelude in {
         translative => "näissi" ;
         terminative => "näjjessaa" ;
         comitative => "näjjeka"
-      } ;
+	} ;
       a = Agr Pl Per3
       } ;
 
