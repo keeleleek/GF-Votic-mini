@@ -35,13 +35,14 @@ concrete MiniGrammarVot of MiniGrammar = open MiniResVot, Prelude in {
 	++ case <pol, np.a, vp.verb.isAux> of {
 	    <True,  Agr num per, _> => vp.verb.s  ! Presn num per ;
 	    <False, Agr num per, _> => neg_Verb.s ! Presn num per ++ vp.verb.s ! Imp
-	    }
+	}
+	++ vp.compl ! getNum np.a
       } ;
 
     
     UseV v = {
       verb = v ;
-      compl = table {Sg => "misasja" ; Pl => "misasjad"} -- TODO is compl needed?
+      compl = table {Sg => [] ; Pl => []} -- TODO is compl needed?
       } ;
     ComplV2 v2 np = {
       verb = v2 ;

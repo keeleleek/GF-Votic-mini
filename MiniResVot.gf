@@ -18,6 +18,9 @@ oper
 
   Verb : Type = {s : VForm => Str ; isAux : Bool} ;
 
+  getNum : Agreement -> Number = \a ->
+    case a of { Agr n p => n } ;
+  
   -- mkVerb : (inf,pres : Str) -> Verb = \inf,pres -> {
   --   s = table {
   --     Inf => inf ;
