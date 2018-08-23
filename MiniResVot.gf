@@ -35,12 +35,13 @@ oper
   --
   --mkV : { s = VForm => Str } -> Verb = \v -> {s = v.s ; isAux = False } ;
   
-  Verb2 : Type = Verb ** {c : Str} ;
+  Verb2 : Type = Verb ** {hasRect : Case} ;
   -- 
   mkV2 = overload {
   --   mkV2 : Str         -> Verb2 = \s   -> mkV s ** {c = []} ;
   --   mkV2 : Str  -> Str -> Verb2 = \s,p -> mkV s ** {c = p} ;
-    mkV2 : Verb        -> Verb2 = \v   -> v ** {c = []} ;
+    mkV2 : Verb         -> Verb2 = \v   -> v ** {hasRect = partitive} ; -- default rection is partitive
+    mkV2 : Verb -> Case -> Verb2 = \v,c -> v ** {hasRect = c} ;
   --   mkV2 : Verb -> Str -> Verb2 = \v,p -> v ** {c = p} ;
     } ;
 
