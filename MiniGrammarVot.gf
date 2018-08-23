@@ -196,18 +196,18 @@ concrete MiniGrammarVot of MiniGrammar = open MiniResVot, Prelude in {
       } ;
     he_Pron = {
       s = table {
-        nominative => "siä" ;
-        genitive => "sinu" ;
-        partitive => "sinnua" ;
-        illative => "sinnu" | "sinusõ" ;
-        inessive => "sinuz" ;
-        elative => "sinuss" ;
-        allative => "sillõ" ;
-        adessive => "sill" ;
-        ablative => "silt" ;
-        translative => "sinussi" ;
-        terminative => "sinussaa" ;
-        comitative => "sinuka"
+        nominative => "tämä" ;
+        genitive => "tämä" ;
+        partitive => "tätä" ;
+        illative => "tämäse" ;
+        inessive => "tämäz" ;
+        elative => "tämäss" ;
+        allative => "tämälle" ;
+        adessive => "tämäll" ;
+        ablative => "tämält" ;
+        translative => "tämässi" ;
+        terminative => "tämässaa" ;
+        comitative => "tämäka"
       } ;
       a = Agr Sg Per3
       } ;
