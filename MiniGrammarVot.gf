@@ -10,12 +10,12 @@ concrete MiniGrammarVot of MiniGrammar = open MiniResVot, Prelude in {
     VP = {verb : Verb ; compl : Number => Str} ;
     AP = Adjective ;
     CN = Noun ;
-    NP = {s : Case => Str ; a : Agreement} ;
+    NP   = {s : Case => Str ; a : Agreement} ;
     Pron = {s : Case => Str ; a : Agreement} ;
-    Det = {s : Case => Str ; n : Number} ;
+    Det  = {s : Case => Str ; n : Number} ;
     Conj = {s : Str} ;
     Prep = {s : Str} ;
-    V = Verb ;
+    V  = Verb ;
     V2 = Verb2 ;
     A = Adjective ;
     N = Noun ;
@@ -33,8 +33,8 @@ concrete MiniGrammarVot of MiniGrammar = open MiniResVot, Prelude in {
       s = \\pol =>
            np.s ! nominative 
 	++ case <pol, np.a, vp.verb.isAux> of {
-	    <True, Agr num per,_> => vp.verb.s ! Presn num per ;
-	    <False, Agr num per,_>  => neg_Verb.s ! Presn num per ++ vp.verb.s ! Imp
+	    <True,  Agr num per, _> => vp.verb.s  ! Presn num per ;
+	    <False, Agr num per, _> => neg_Verb.s ! Presn num per ++ vp.verb.s ! Imp
 	    }
       } ;
 
