@@ -37,12 +37,12 @@ oper
   
   Verb2 : Type = Verb ** {c : Str} ;
   -- 
-  -- mkV2 = overload {
+  mkV2 = overload {
   --   mkV2 : Str         -> Verb2 = \s   -> mkV s ** {c = []} ;
   --   mkV2 : Str  -> Str -> Verb2 = \s,p -> mkV s ** {c = p} ;
-  --   mkV2 : Verb        -> Verb2 = \v   -> v ** {c = []} ;
+    mkV2 : Verb        -> Verb2 = \v   -> v ** {c = []} ;
   --   mkV2 : Verb -> Str -> Verb2 = \v,p -> v ** {c = p} ;
-  --   } ;
+    } ;
 
   Adverb : Type = {s : Str} ;
 
