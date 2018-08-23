@@ -56,8 +56,8 @@ concrete MiniGrammarVot of MiniGrammar = open MiniResVot, Prelude in {
 	  Pl => ap.s ! NF Pl nominative
 	} 
       } ;
---    AdvVP vp adv =
---      vp ** {compl = vp.compl ++ adv.s} ;
+    AdvVP vp adv =
+      vp ** { compl = table { num => vp.compl ! num ++ adv.s } } ;
       
     DetCN det cn = {
       s = table {c => det.s ! c ++ cn.s ! NF det.n c} ;
