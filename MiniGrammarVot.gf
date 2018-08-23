@@ -43,10 +43,10 @@ concrete MiniGrammarVot of MiniGrammar = open MiniResVot, Prelude in {
       verb = v ;
       compl = table {Sg => "misasja" ; Pl => "misasjad"} -- TODO is compl needed?
       } ;
---    ComplV2 v2 np = {
---      verb = v2 ;
---      compl = v2.c ++ np.s ! partitive
---      } ;
+    ComplV2 v2 np = {
+      verb = v2 ;
+      compl = table { _ => np.s ! v2.hasRect }
+      } ;
     UseAP ap = {
       verb = be_Verb ;
       compl = 
