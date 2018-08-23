@@ -14,38 +14,35 @@ oper
 
   Adjective : Type = {s : NForm => Str};
 
-  -- mkA : Str -> Adjective = \s -> {s = s} ;
+  --mkA : Str -> Adjective = \s -> {s = s} ;
 
   Verb : Type = {s : VForm => Str ; isAux : Bool} ;
 
   getNum : Agreement -> Number = \a ->
     case a of { Agr n p => n } ;
   
-  -- mkVerb : (inf,pres : Str) -> Verb = \inf,pres -> {
-  --   s = table {
-  --     Inf => inf ;
-  --     PresSg3 => pres
-  --     }
-  --   } ;
-  -- 
-  -- smartVerb : Str -> Verb = \inf ->
-  --    mkVerb inf inf ;
-  -- 
-  -- mkV = overload {
-  --   mkV : Str -> Verb = smartVerb ;
-  --   mkV : (inf,pres : Str) -> Verb = mkVerb ;
-  --   } ;
+  --mkVerb : (inf,pres : Str) -> Verb = \inf,pres -> {
+  --  s = table {
+  --    Inf => inf ;
+  --    PresSg3 => pres
+  --    }
+  --  } ;
   --
-  --mkV : { s = VForm => Str } -> Verb = \v -> {s = v.s ; isAux = False } ;
+  --smartVerb : Str -> Verb = \inf ->
+  --   mkVerb inf inf ;
+  --
+  --mkV = overload {
+  --  mkV : Str -> Verb = smartVerb ;
+  --  mkV : (inf,pres : Str) -> Verb = mkVerb ;
+  --  } ;
   
   Verb2 : Type = Verb ** {hasRect : Case} ;
-  -- 
+
   mkV2 = overload {
-  --   mkV2 : Str         -> Verb2 = \s   -> mkV s ** {c = []} ;
-  --   mkV2 : Str  -> Str -> Verb2 = \s,p -> mkV s ** {c = p} ;
+    --mkV2 : Str         -> Verb2 = \s   -> mkV s ** {c = []} ;
+    --mkV2 : Str  -> Str -> Verb2 = \s,p -> mkV s ** {c = p} ;
     mkV2 : Verb         -> Verb2 = \v   -> v ** {hasRect = partitive} ; -- default rection is partitive
     mkV2 : Verb -> Case -> Verb2 = \v,c -> v ** {hasRect = c} ;
-  --   mkV2 : Verb -> Str -> Verb2 = \v,p -> v ** {c = p} ;
     } ;
 
   Adverb : Type = {s : Str} ;

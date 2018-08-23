@@ -124,9 +124,6 @@ concrete MiniGrammarVot of MiniGrammar = open MiniResVot, Prelude in {
     UseN n = n ;
     AdjCN ap cn = {
       s = table {n => ap.s ! n ++ cn.s ! n}
---      s = table {
---	NF num cas => 
---	}
       } ;
     
     PositA a = a ;
