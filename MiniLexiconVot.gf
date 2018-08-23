@@ -25,7 +25,18 @@ lin cat_N = mkKatti "katti" ;
 -- lin clever_A = mkA "clever" ; -- tarkka
 -- lin cloud_N = mkN "cloud" ; -- pilvi
 -- lin cold_A = mkA "cold" ; -- čülmä
--- lin come_V = mkV "come" ;
+  lin come_V = {
+	s = table {
+	  Presn Sg Per1 => "tuõn" ;
+	  Presn Sg Per2 => "tuõd" ;
+	  Presn Sg Per3 => "tuõb" ;
+	  Presn Pl Per1 => "tuõmmõ" ;
+	  Presn Pl Per2 => "tuõttõ" ;
+	  Presn Pl Per3 => "tulla" ;
+	  Imp => "tuõ"
+	  } ;
+	isAux = False ;
+	} ;
 -- lin computer_N = mkN "computer" ; -- kampuuttera
 lin cow_N = mkPäive "lehme" ;
 -- lin dirty_A = mkA "dirty" ; 
@@ -39,7 +50,18 @@ lin dog_N = mkKoirõ "koirõ" ;
 -- lin friend_N = mkN "friend" ; -- tavarissa
 lin girl_N = mkTüttö "tüttö" ; -- tüttö
 -- lin good_A = mkA "good" ; -- üvä
--- lin go_V = mkV "go" ;
+  lin go_V = {
+	s = table {
+	  Presn Sg Per1 => "meen" ;
+	  Presn Sg Per2 => "meed" ;
+	  Presn Sg Per3 => "meeb" ;
+	  Presn Pl Per1 => "meemme" ;
+	  Presn Pl Per2 => "meette" ;
+	  Presn Pl Per3 => "mennä" ;
+	  Imp => "mee"
+	  } ;
+	isAux = False ;
+	} ;
 -- lin grammar_N = mkN "grammar" ;
 -- lin green_A = mkA "green" ; -- rohoin
 -- lin heavy_A = mkA "heavy" ; -- raskaz
@@ -50,7 +72,18 @@ lin girl_N = mkTüttö "tüttö" ; -- tüttö
 -- lin jump_V = mkV "jump" ;
 -- lin kill_V2 = mkV2 "kill" ;
 -- lin language_N = mkN "language" ; -- čeeli
--- lin live_V = mkV "live" ;
+  lin live_V = {
+	s = table {
+	  Presn Sg Per1 => "elän" ;
+	  Presn Sg Per2 => "eläd" ;
+	  Presn Sg Per3 => "eläb" ;
+	  Presn Pl Per1 => "elämme" ;
+	  Presn Pl Per2 => "elätte" ;
+	  Presn Pl Per3 => "eletä" ;
+	  Imp => "elä"
+	  } ;
+	isAux = False ;
+	} ;
 -- lin love_V2 = mkV2 "love" ;
 -- lin man_N = mkN "man" "men" ; -- meez
 lin milk_N = mkPäive "piime" ;
@@ -71,20 +104,18 @@ lin milk_N = mkPäive "piime" ;
 	  } ;
 	isAux = False ;
 	} ;
-      
--- lin read_V2 = mkV2 "read" ;
---      {
---	s = table {
---	  Presn Sg Per1 => "lugõn" ;
---	  Presn Sg Per2 => "lugõd" ;
---	  Presn Sg Per3 => "lugõb" ;
---	  Presn Pl Per1 => "lugõmmõ" ;
---	  Presn Pl Per2 => "lugõttõ" ;
---	  Presn Pl Per3 => "lugõta" ;
---	  Imp => "lugõ"
---	  } ;
---	isAux = False ;
---	} ;
+  lin read_V2 = mkV2 {
+	s = table {
+	  Presn Sg Per1 => "lugõn" ;
+	  Presn Sg Per2 => "lugõd" ;
+	  Presn Sg Per3 => "lugõb" ;
+	  Presn Pl Per1 => "lugõmmõ" ;
+	  Presn Pl Per2 => "lugõttõ" ;
+	  Presn Pl Per3 => "lugõta" ;
+	  Imp => "lugõ"
+	  } ;
+	isAux = False ;
+	} ;
 -- lin ready_A = mkA "ready" ;
 -- lin red_A = mkA "red" ;
 -- lin river_N = mkN "river" ;
