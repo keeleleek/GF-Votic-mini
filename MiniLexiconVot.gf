@@ -1,5 +1,5 @@
 concrete MiniLexiconVot of MiniLexicon = MiniGrammarVot ** open MiniResVot,Prelude in {
--- lin already_Adv = mkAdv "already" ;
+  lin already_Adv = mkAdv "jo" ;
 -- lin animal_N = mkN "animal" ;
 lin apple_N = mkOmõn "omõn" ;
 -- lin baby_N = mkN "baby" ;
@@ -89,7 +89,7 @@ lin girl_N = mkTüttö "tüttö" ; -- tüttö
 lin milk_N = mkPäive "piime" ;
 -- lin music_N = mkN "music" ; -- muzükka
 -- lin new_A = mkA "new" ; -- uusi 
--- lin now_Adv = mkAdv "now" ;
+  lin now_Adv = mkAdv "nüt" ;
 -- lin old_A = mkA "old" ;
 -- lin paris_PN = mkPN "Paris" ;
   lin play_V = {
