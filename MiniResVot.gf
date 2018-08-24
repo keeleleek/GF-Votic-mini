@@ -21,20 +21,26 @@ oper
   getNum : Agreement -> Number = \a ->
     case a of { Agr n p => n } ;
   
-  --mkVerb : (inf,pres : Str) -> Verb = \inf,pres -> {
-  --  s = table {
-  --    Inf => inf ;
-  --    PresSg3 => pres
-  --    }
-  --  } ;
-  --
+  mkRegularVerb : (imp : Str) -> Verb = \imp -> {
+    s = table {
+      Presn Sg Per1 => imp + "n" ;
+      Presn Sg Per2 => imp + "d" ;
+      Presn Sg Per3 => imp + "b" ;
+      Presn Pl Per1 => imp + "mme" ;
+      Presn Pl Per2 => imp + "ttõ" ;
+      Presn Pl Per3 => imp + "ta" ;
+      Imp => imp 
+      } ;
+    isAux = False ;
+    } ;
+  
   --smartVerb : Str -> Verb = \inf ->
   --   mkVerb inf inf ;
-  --
-  --mkV = overload {
-  --  mkV : Str -> Verb = smartVerb ;
-  --  mkV : (inf,pres : Str) -> Verb = mkVerb ;
-  --  } ;
+
+  mkV = overload {
+    mkV : Str -> Verb = mkRegularVerb ;
+    --mkV : (inf,pres : Str) -> Verb = mkVerb ;
+    } ;
   
   Verb2 : Type = Verb ** {hasRect : Case} ;
 
