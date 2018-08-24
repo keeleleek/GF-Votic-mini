@@ -142,9 +142,9 @@ concrete MiniGrammarVot of MiniGrammar = open MiniResVot, Prelude in {
 
     every_Det = {s = \\c => (mkKõikk "kõikk").s ! NF Sg c ; n = Pl} ;
 
-    in_Prep = {s = "in"} ;
-    on_Prep = {s = "on"} ;
-    with_Prep = {s = "with"} ;
+    in_Prep = {s = "süämez"} ;
+    on_Prep = {s = "pääll"} ;
+    with_Prep = {s = "kaasa"} ;
 
     i_Pron = {
       s = table {
