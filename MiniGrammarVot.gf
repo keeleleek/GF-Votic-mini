@@ -130,7 +130,7 @@ concrete MiniGrammarVot of MiniGrammar = open MiniResVot, Prelude in {
     
     PositA a = a ;
 
-    PrepNP prep np = {s = prep.s ++ np.s ! partitive} ;
+    PrepNP prep np = {s = np.s ! prep.hasRect ++ prep.s} ;
 
     CoordS conj a b = {s = a.s ++ conj.s ++ b.s} ;
     
