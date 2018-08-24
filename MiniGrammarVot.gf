@@ -14,7 +14,7 @@ concrete MiniGrammarVot of MiniGrammar = open MiniResVot, Prelude in {
     Pron = {s : Case => Str ; a : Agreement} ;
     Det  = {s : Case => Str ; n : Number} ;
     Conj = {s : Str} ;
-    Prep = {s : Str} ;
+    Prep = {s : Str ; hasRect : Case} ;
     V  = Verb ;
     V2 = Verb2 ;
     A = Adjective ;
@@ -142,9 +142,9 @@ concrete MiniGrammarVot of MiniGrammar = open MiniResVot, Prelude in {
 
     every_Det = {s = \\c => (mkKõikk "kõikk").s ! NF Sg c ; n = Pl} ;
 
-    in_Prep = {s = "süämez"} ;
-    on_Prep = {s = "pääll"} ;
-    with_Prep = {s = "kaasa"} ;
+    in_Prep = {s = "süämez" ; hasRect = genitive } ; -- TODO change s to table with NForms
+    on_Prep = {s = "pääll" ; hasRect = genitive } ;
+    with_Prep = {s = "kaasa" ; hasRect = comitative } ;
 
     i_Pron = {
       s = table {
